@@ -6,7 +6,7 @@ CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     last_login_time DATETIME,
     registration_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     status ENUM('active', 'blocked') NOT NULL
@@ -24,3 +24,6 @@ VALUES
 
 ALTER TABLE users
 MODIFY COLUMN registration_time DATETIME DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE users
+MODIFY COLUMN password VARCHAR(60) NOT NULL;
